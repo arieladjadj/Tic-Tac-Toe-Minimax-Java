@@ -8,9 +8,8 @@ public class Program {
         Game game = new Game('O', 'X');
         String userInput = "";
         printAsciiArt();
-        //checkAI();
 
-        while(!(userInput.toLowerCase().equals("quit") || userInput.toLowerCase().equals("q"))) {// && userInput != "q" && userInput != "Quit") {
+       while(!(userInput.toLowerCase().equals("quit") || userInput.toLowerCase().equals("q"))) {
             game.startGame();
             System.out.print("Print 'quit' or 'q' to exit or any other key to continue: ");
             userInput = r.next();
@@ -34,25 +33,4 @@ public class Program {
             e.printStackTrace();
         }
     }
-
-    private static void checkAI() {
-        char[][] board = {{'X','O','x'},
-                          {'O','O','x' },
-                          {'-','X','-'}};
-        AI_Player ai_player = new AI_Player('O','X');
-        ai_player.makeMove(board);
-        printBoard(board);
-    }
-
-    private static void printBoard(char[][] board) {
-        for(int i=0; i<3; i++) {
-            //System.out.print("  ");
-            for(int j=0; j<3; j++) {
-                System.out.print("|\t" + board[i][j] + "\t");
-            }
-            if(i<2) System.out.println("|\n-------------------------");
-            else System.out.println("|");
-        }
-    }
-
 }
